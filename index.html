@@ -1,0 +1,186 @@
+<<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Taxi Diego Gudiño</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to bottom, #fff8dc, #f0c878); /* degradado cálido */
+            color: #333;
+        }
+
+        header {
+            background-color: #ffae00d5; /* Amarillo */
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        header h1 {
+            font-size: 3em;
+            color: #000;
+            margin: 0;
+        }
+
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+            color: #222;
+        }
+
+        section {
+            padding: 30px 20px;
+        }
+
+        h2 {
+            color: #333;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
+        }
+
+        .chofer {
+            display: flex;
+            align-items: center;
+            margin: 20px 0;
+        }
+
+        .chofer img {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            margin-right: 20px;
+            border: 2px solid #ccc;
+        }
+
+        .vehiculos {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .vehiculos img {
+            width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 2px solid #ccc;
+        }
+
+        .whatsapp {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #25D366;
+            color: white;
+            padding: 10px 15px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-size: 20px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+
+        .simulador {
+            margin-top: 30px;
+        }
+
+        .simulador input {
+            padding: 8px;
+            margin-right: 10px;
+            width: 200px;
+        }
+
+        .simulador button {
+            padding: 8px 12px;
+            background-color: #FFD700;
+            border: none;
+            cursor: pointer;
+            font-weight: bold;
+        }
+
+        .simulador button:hover {
+            background-color: #e0c200;
+        }
+
+        .footer-note {
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #444;
+        }
+
+        #resultado {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Taxi Diego Gudiño</h1>
+        <p>Somos una empresa de taxi, ubicada en Las Varillas Córdoba, ya más de 20 años trabajando en este rubro, hacemos viajes de corta y larga distancia, su consulta no nos molesta</p>
+    </header>
+
+    <section>
+        <h2>Choferes</h2>
+
+        <div class="chofer">
+            <img src="chofer1.jpg" alt="Diego Gudiño">
+            <div>
+                <strong>Chofer 1:</strong> Diego Gudiño<br>
+                <strong>Teléfono:</strong> 3533401400<br>
+                <strong>Edad:</strong> 45 años
+            </div>
+        </div>
+
+        <div class="chofer">
+            <img src="chofer2.jpg" alt="Paola Ramallo">
+            <div>
+                <strong>Chofer 2:</strong> Paola Ramallo<br>
+                <strong>Teléfono:</strong> 3533416531<br>
+                <strong>Edad:</strong> 44 años
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <h2>Vehículos</h2>
+        <div class="vehiculos">
+            <img src="vehiculo1.jpg" alt="Vehículo 1">
+            <img src="vehiculo2.jpg" alt="Vehículo 2">
+            <img src="vehiculo3.jpg" alt="Vehículo 3">
+            <img src="vehiculo4.jpg" alt="Vehículo 4">
+            <img src="vehiculo5.jpg" alt="Vehículo 5">
+            <img src="vehiculo6.jpg" alt="Vehículo 6">
+        </div>
+    </section>
+
+    <section class="simulador">
+        <h2>Simulador de Costo</h2>
+        <input type="number" id="distancia" placeholder="Distancia en km">
+        <button onclick="calcularCosto()">Calcular</button>
+        <p id="resultado"></p>
+        <p class="footer-note">La distancia empieza a contar desde Las Varillas. Consulte el precio antes de viajar</p>
+    </section>
+
+    <a class="whatsapp" href="https://wa.me/543533401400?text=Hola%20buenos%20días,%20tengo%20una%20consulta" target="_blank">
+        💬 WhatsApp
+    </a>
+
+    <script>
+        function calcularCosto() {
+            const distancia = parseFloat(document.getElementById("distancia").value);
+            const costoPorKm = 800;
+            if (isNaN(distancia) || distancia <= 0) {
+                document.getElementById("resultado").innerText = "Por favor ingrese una distancia válida.";
+                return;
+            }
+            const total = distancia * costoPorKm;
+            document.getElementById("resultado").innerText = `Costo estimado: $${total.toFixed(2)}`;
+        }
+    </script>
+
+</body>
+</html>
